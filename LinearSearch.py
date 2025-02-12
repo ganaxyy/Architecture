@@ -1,62 +1,46 @@
-def linear_search(arr, target):
 
-    indices = []
-    count = 0
+print("=== Linear Search Program ===")
 
-    print(f"Searching for '{target}' in the array: {arr}")
+print("Enter the elements of the array separated by spaces:")
+user_input = input().split()
+array = []
 
-    for index in range(len(arr)):
-        print(f"Checking index {index}, value: {arr[index]}")
-
-        if arr[index] == target:
-            print(f"Match found at index {index}")
-            indices.append(index)
-            count += 1
-        else:
-            print(f"No match at index {index}")
-
-    if count > 0:
-        print(f"\n'{target}' found {count} times at indices: {indices}")
-    else:
-        print(f"\n'{target}' not found in the array.")
-    
-    return indices
-
-def input_array():
-
-    print("Enter the elements of the array separated by spaces:")
-    user_input = input().split()
-    
-    array = []
-    for item in user_input:
-        try:
-            array.append(int(item))
-        except ValueError:
-            array.append(item)
-    
-    print(f"Array created: {array}")
-    return array
-
-def input_target():
-
-    print("Enter the target element to search for:")
-    target_input = input()
-    
+for item in user_input:
     try:
-        target = int(target_input)
+        array.append(int(item))
     except ValueError:
-        target = target_input
+        array.append(item)
+
+print(f"Array created: {array}")
+
+print("Enter the target element to search for:")
+target_input = input()
+try:
+    target = int(target_input)
+except ValueError:
+    target = target_input
+
+print(f"Target to search: {target}")
+
+indices = []
+count = 0
+
+print(f"Searching for '{target}' in the array: {array}")
+
+for index in range(len(array)):
+    print(f"Checking index {index}, value: {array[index]}")
     
-    print(f"Target to search: {target}")
-    return target
+    if array[index] == target:
+        indices.append(index)
+        count += 1
+        print(f"Match found at index {index}")
+        continue
+    else:
+        continue
 
-if __name__ == "__main__":
-    print("=== Linear Search Program ===")
+if count > 0:
+    print(f"\n'{target}' found {count} times at indices: {indices}")
+else:
+    print(f"\n'{target}' not found in the array.")
 
-    array = input_array()
-
-    target = input_target()
-
-    result = linear_search(array, target)
-
-    print("\n=== Search Completed ===")
+print("\n=== Search Completed ===")

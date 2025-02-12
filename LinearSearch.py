@@ -1,8 +1,5 @@
 def linear_search(arr, target):
-    """
-    Linear Search Algorithm to find the target in the array.
-    Returns a list of indices where the target is found.
-    """
+
     indices = []
     count = 0
 
